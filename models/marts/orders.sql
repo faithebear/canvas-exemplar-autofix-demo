@@ -3,9 +3,7 @@ with
 orders as (
 
     select 
-        order_id,
-        customer_id,
-        ordered_at
+        *
     from {{ ref('stg_orders') }}
 
 ),
@@ -13,12 +11,7 @@ orders as (
 order_items as (
 
     select 
-        order_item_id,
-        order_id,
-        supply_cost,
-        product_price,
-        is_food_item,
-        is_drink_item
+      *
     from {{ ref('order_items') }}
 
 ),
