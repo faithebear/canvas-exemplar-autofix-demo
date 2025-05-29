@@ -2,13 +2,37 @@ with
 
 customers as (
 
-    select * from {{ ref('stg_customers') }}
+    select 
+        customer_id,
+        customer_name 
+    from 
+        {{ ref('stg_customers') }}
 
 ),
 
 orders as (
 
-    select * from {{ ref('orders') }}
+    select 
+        order_id,
+        location_id,
+        customer_id,
+        subtotal_cents,
+        tax_paid_cents,
+        order_total_cents,
+        subtotal,
+        tax_paid,
+        order_total,
+        ordered_at,
+        order_cost,
+        order_items_subtotal,
+        count_food_items,
+        count_drink_items,
+        count_order_items,
+        is_food_order,
+        is_drink_order,
+        customer_order_number
+    from 
+        {{ ref('orders') }}
 
 ),
 
