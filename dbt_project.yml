@@ -35,3 +35,4 @@ models:
     marts:
       +materialized: table
       +group: customer_obsessed
+
