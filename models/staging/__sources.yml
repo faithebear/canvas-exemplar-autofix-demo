@@ -42,7 +42,7 @@ sources:
             description: Unique identifier for the user
             data_tests:
               - not_null
-          - name: viewed_at
+          - name: view_at
             description: Timestamp indicating when the event occurred
             data_tests:
               - not_null
