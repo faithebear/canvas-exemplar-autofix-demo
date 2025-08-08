@@ -36,42 +36,28 @@ sources:
           - name: pageview_id
             description: Unique identifier for the pageview
             data_tests:
-              - unique:
-                  config:
-                    severity: warn
-              - not_null:
-                  config:
-                    severity: warn
+              - unique
+              - not_null
           - name: user_id
             description: Unique identifier for the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: viewed_at
             description: Timestamp indicating when the event occurred
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: region
             description: Geographical region of the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: traffic_source
             description: Traffic source from which the user arrived
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: last_loaded_at
             description: Timestamp indicating when the event occurred
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
       - name: support_tickets
         description: Support tickets submitted by users, including metadata on issue type,
           priority, and submission channel.
@@ -84,93 +70,61 @@ sources:
           - name: ticket_id
             description: Unique identifier for the ticket
             data_tests:
-              - unique:
-                  config:
-                    severity: warn
-              - not_null:
-                  config:
-                    severity: warn
+              - unique
+              - not_null
           - name: user_id
             description: Unique identifier for the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: created_at
             description: Timestamp indicating when the event occurred
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: region
             description: Geographical region of the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: issue_type
             description: Category of the reported issue
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: priority
             description: Priority level assigned to the support ticket
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: channel
             description: Communication channel through which the ticket was submitted
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
       - name: transactions
         description: Completed user transactions including payment and device metadata.
         columns:
           - name: transaction_id
             description: Unique identifier for the transaction
             data_tests:
-              - unique:
-                  config:
-                    severity: warn
-              - not_null:
-                  config:
-                    severity: warn
+              - unique
+              - not_null
           - name: user_id
             description: Unique identifier for the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: completed_at
             description: Timestamp indicating when the event occurred
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: checkout_flow
             description: Checkout flow variant or step
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: payment_method
             description: Payment method used for the transaction
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: country
             description: Country associated with the user or transaction
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
           - name: device_type
             description: Device type used by the user
             data_tests:
-              - not_null:
-                  config:
-                    severity: warn
+              - not_null
