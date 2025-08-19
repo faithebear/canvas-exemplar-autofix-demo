@@ -1,26 +1,25 @@
-{{
-    config(
-        materialized = 'table',
-    )
+{{ 
+  config(
+    materialized = 'table'
+  ) 
 }}
 
-with days as (
-
-    {{
-        dbt.date_spine(
-            'day',
-            "to_date('01/01/2000','mm/dd/yyyy')",
-            "to_date('01/01/2025','mm/dd/yyyy')"
-        )
-    }}
-
+with base_dates as (
+  {{
+    dbt.date_spine(
+      'day',
+      "DATE('2000-01-01')",
+      "DATE('2030-01-01')"
+    )
+  }}
 ),
-
 final as (
-    select cast(date_day as date) as date_day
-    from days
+  select
+    cast(date_day as date) as date_day
+  from base_dates
 )
 
-select * from final
-where date_day > dateadd(year, -4, current_timestamp()) 
-and date_day < dateadd(day, 30, current_timestamp())
+select *
+from final
+where date_day > dateadd(year, -5, current_date())   -- keep ~5 years back
+  and date_day < dateadd(day, 30, current_date());   -- and ~30 days forward
